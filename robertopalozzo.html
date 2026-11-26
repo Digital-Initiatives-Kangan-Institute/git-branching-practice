@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cockroaches – anteprima</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-stone-950">
+  <div id="root"></div>
+  <script type="text/babel">
+const FACTS = [
+  {
+    title: "Ancient survivors",
+    body: "Cockroach ancestors have existed for hundreds of millions of years.",
+  },
+  {
+    title: "Built for darkness",
+    body: "Most species are nocturnal and spend daylight hours hidden in cracks, crevices, leaf litter, or other sheltered places.",
+  },
+  {
+    title: "More than pests",
+    body: "Thousands of cockroach species exist worldwide, and only a relatively small number commonly live around people.",
+  },
+  {
+    title: "Natural recyclers",
+    body: "In wild ecosystems, many species help break down decaying plant material and return nutrients to the environment.",
+  },
+];
+
+const ANATOMY = [
+  { value: 6, label: "legs" },
+  { value: 2, label: "long antennae" },
+  { value: 3, label: "main body regions" },
+];
+
+function CockroachPage() {
+  return (
+    <div className="min-h-screen scroll-smooth bg-stone-950 text-stone-100">
+      <main>
+        <section className="relative overflow-hidden border-b border-amber-900/30 bg-gradient-to-br from-stone-950 via-amber-950/40 to-stone-900 px-6 py-24">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+            <div>
+              <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-amber-400">
+                Insect profile
+              </p>
+              <h1 className="break-words text-5xl font-black tracking-tight sm:text-6xl md:text-8xl">
+                Cockroaches
+              </h1>
+              <p className="mt-6 max-w-xl text-xl leading-relaxed text-stone-300">
+                Remarkably resilient insects that are often misunderstood. Explore how they live,
+                why they matter, and what to do when pest species move indoors.
+              </p>
+              <a
+                href="#facts"
+                className="mt-8 inline-block rounded-2xl bg-amber-500 px-6 py-3 font-bold text-stone-950 shadow-lg transition hover:bg-amber-400 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
+              >
+                Explore the facts
+              </a>
+            </div>
+            <div className="flex justify-center" aria-hidden="true">
+              <div className="flex h-56 w-56 rotate-3 items-center justify-center rounded-[3rem] border border-amber-700/40 bg-amber-950/40 text-[7rem] shadow-2xl shadow-black/40 sm:h-80 sm:w-80 sm:text-[10rem]">
+                🪳
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="facts"
+          aria-labelledby="facts-heading"
+          className="mx-auto max-w-6xl scroll-mt-8 px-6 py-20"
+        >
+          <div className="mb-10 max-w-2xl">
+            <p className="text-sm font-bold uppercase tracking-[0.25em] text-amber-500">
+              Quick facts
+            </p>
+            <h2 id="facts-heading" className="mt-2 text-4xl font-black">
+              There is more to them than meets the eye.
+            </h2>
+          </div>
+          <ol className="grid gap-5 md:grid-cols-2">
+            {FACTS.map(({ title, body }, i) => (
+              <li
+                key={title}
+                className="rounded-3xl border border-stone-800 bg-stone-900 p-7 shadow-xl"
+              >
+                <div
+                  className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 font-black text-stone-950"
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </div>
+                <h3 className="text-2xl font-bold">{title}</h3>
+                <p className="mt-3 leading-7 text-stone-400">{body}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section aria-labelledby="anatomy-heading" className="bg-amber-500 px-6 py-16 text-stone-950">
+          <h2 id="anatomy-heading" className="sr-only">
+            Anatomy at a glance
+          </h2>
+          <dl className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-3">
+            {ANATOMY.map(({ value, label }) => (
+              <div key={label} className="flex flex-col-reverse">
+                <dt className="mt-1 font-semibold">{label}</dt>
+                <dd className="text-4xl font-black">{value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-6 py-20">
+          <div className="grid gap-8 md:grid-cols-2">
+            <article className="rounded-3xl bg-stone-900 p-8">
+              <h2 className="text-3xl font-black text-amber-400">Where do they live?</h2>
+              <p className="mt-4 leading-7 text-stone-300">
+                Cockroaches occupy a wide variety of habitats. Wild species can be found in
+                forests, caves, grasslands, beneath bark, and among decomposing vegetation. Pest
+                species may seek food, water, warmth, and shelter inside buildings.
+              </p>
+            </article>
+            <article className="rounded-3xl bg-stone-900 p-8">
+              <h2 className="text-3xl font-black text-amber-400">If they are indoors</h2>
+              <p className="mt-4 leading-7 text-stone-300">
+                Keep food sealed, clean crumbs and spills, empty rubbish regularly, fix water
+                leaks, and seal gaps around pipes and walls. Persistent infestations are best
+                handled with targeted pest-management methods rather than indiscriminate spraying.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-stone-800 px-6 py-8 text-center text-sm text-stone-400">
+        A quick introduction to one of the world's most adaptable groups of insects.
+      </footer>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<CockroachPage />);
+  </script>
+</body>
+</html>
